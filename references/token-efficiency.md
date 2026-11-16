@@ -1,40 +1,64 @@
-# Token-Efficient Handling
+# Token-Efficient Handling & Progressive Disclosure
 
-Read this whenever a query involves an uploaded video, PDF, or image, or whenever "read before acting" would otherwise mean pulling in a lot of log history. The goal: pay full processing cost for a piece of media **once**, then reuse the compact extracted result forever after — never the raw file.
+Read this whenever a query involves uploaded media (video, PDF, image), extensive log history, or when deciding which modular reference guides to load.
 
-## Core rule: extract once, store compact, never re-process
+---
 
-The first time any blood PDF, video, or photo is processed, convert it into a compact text artifact (a table, a short bullet list) in that day's `session.md`. That extracted text — not the original file — is the source of truth from then on.
-- Never re-attach or re-analyze a previously processed file "just to double check" unless the user explicitly re-uploads a new one or asks you to re-examine it.
-- When a later session needs a past result (e.g., "what was my vitamin D last time"), read the compact table from that session's log — do not re-open the original PDF/image/video.
-- This also means: don't ask the user to re-send a file you've already processed. If you need more from the same document (a marker you didn't extract yet), ask them to confirm the specific value instead of re-uploading.
+## 1. Progressive Disclosure of Reference Files
 
-## Video specifically (the most expensive input type)
+To minimize context window consumption, **never load all reference files on every turn**. Load modular references on demand only when the user query requires that specific domain:
 
-- Before processing, if the video is more than ~30-60 seconds or covers more than one movement/angle, ask the user to trim it to the specific rep or angle that matters, rather than processing the whole clip. One clean example rep beats ten.
-- Extract observations from a handful of representative frames (e.g., top/bottom of a lift, or front/side/back for posture) rather than analyzing every frame — describe what's needed, not everything visible.
-- Store only the resulting text description in `session.md`. Don't keep re-describing the same video across turns in the same session — refer back to what you already wrote.
-- If the movement or angle is unclear from a few frames, ask for a specific short re-record rather than requesting the whole video be resent at higher quality/length.
+| Reference File | When to Load | Do NOT Load When |
+| :--- | :--- | :--- |
+| `references/token-efficiency.md` | Session start / file ingestion | Query is a simple text question already covered |
+| `references/verification-checklist.md` | Designing or revising workout/diet | User is merely checking in with casual questions |
+| `references/file-templates.md` | Creating or modifying profile/plan/logs | Purely conversational turn without file writes |
+| `references/biomarker-guide.md` | Blood report uploaded or lab values cited | No blood work or lab tests involved |
+| `references/movement-analysis.md` | Lift video, posture photo, or form check | Diet-only or general programming inquiries |
+| `references/pain-management.md` | User reports joint pain, pinch, or injury | User reports normal muscle soreness (DOMS) |
+| `references/recommendation-guidelines.md` | Calculating macros, splits, or adjustments | Reviewing historical logs or answering basic Qs |
 
-## Images (skin, hair, posture photos)
+---
 
-- One clear photo per angle/area is enough — don't request multiple redundant shots "to be safe" unless the first is genuinely unusable (see `references/input-processing.md` for when to ask for a clearer photo).
-- Describe once, store the description, and reuse it in the same way as video — later turns reference the stored text, not the image itself.
+## 2. Core Directive: Extract Once, Store Compact, Never Re-Process
 
-## Blood work PDFs
+The first time any PDF, video, or photo is processed:
+1. Ingest the file once and summarize into a compact markdown table or bullet list in that day's `session.md`.
+2. Save representative freeze-frame assets (if video) into `logs/<date>/assets/`.
+3. The extracted text artifact — **never the original raw file** — becomes the single source of truth for all subsequent turns and future sessions.
+4. **Never re-attach, re-read, or re-parse a previously processed file** unless the user uploads a newer version or explicitly requests a re-examination.
+5. If you need a past result (e.g., prior Vitamin D level or prior squat cue), read the compact line from `progress-log.md` or the corresponding `session.md` — never re-open the source media.
 
-- Extract markers into a compact table (marker, value, range, flag) once, store that table in `session.md`, and treat it as the record from then on — don't re-parse or re-quote the source PDF in later turns.
-- If the user pastes values as text instead of uploading a PDF, prefer that — it's already compact and skips file processing entirely. It's fine to say so if it would help: "You can also just paste the values directly if that's easier."
+---
 
-## Reading logs: default to the summary, drill down only when needed
+## 3. Video Handling (High-Cost Media)
 
-- The default for "read before acting" is `progress-log.md` (the short, dated-entry summary) — not every full `session.md`. Only open a specific `logs/<date>/session.md` when:
-  - the current query directly references something from that session (a past recommendation, a specific test result), or
-  - `progress-log.md` flags an unresolved follow-up relevant to the current query.
-- Don't open the last several `session.md` files "just in case" — `progress-log.md` exists specifically so you don't have to.
+- **Trimming**: If an uploaded video is longer than ~30–45 seconds or contains multiple sets/angles, request the user to trim to 1–2 clean working reps.
+- **Representative Frames**: Analyze 2–3 critical biomechanical points (e.g., bottom of squat, turnaround of bench press, floor break of deadlift) rather than parsing every continuous frame.
+- **Store Findings Once**: Describe the movement flaws, verbal cues, and corrective drills in `session.md`. Do not repeat long descriptions in future turns; reference the dated log entry.
 
-## Keeping `progress-log.md` itself from growing without bound
+---
 
-- Once `progress-log.md` holds more than ~10-15 dated entries, condense the older ones: replace the oldest entries with a single rolled-up summary block (e.g., "Sessions Jan-Mar 2026: goal was X, key findings were Y, plan evolved to Z") and keep only recent sessions in full per-entry detail.
-- Do this consolidation as part of a normal session update, not as a separate cleanup task — fold it into step 6 of the workflow when you notice the file has grown large.
-- Never summarize away a flag from Version History in `plan.md` or a still-open medical follow-up — carry those forward explicitly even when compressing older entries.
+## 4. Image Handling (Skin, Hair, Posture Photos)
+
+- One clear photo per angle/area is sufficient. Do not request redundant shots unless the initial photo is completely obscured or unreadable.
+- Store the objective, non-diagnostic visual description in `session.md` and reference that text in later discussions.
+
+---
+
+## 5. Blood Work Reports (PDFs & Scans)
+
+- Parse blood reports directly into the compact markdown table schema (Marker | Result | Range | Status | Athletic Context).
+- If the user provides lab values directly as plain text, prefer and encourage it: plain text avoids all PDF extraction overhead.
+
+---
+
+## 6. Efficient Log Reading Protocols
+
+1. **Default to the Summary**: At the start of a session, read only `profile.md` and `logs/progress-log.md`.
+2. **Drill Down Only on Direct Triggers**: Only open a specific `logs/YYYY-MM-DD/session.md` if:
+   - The user explicitly asks about that specific past session, or
+   - `progress-log.md` flags an unresolved open item or delta requiring detailed historical context.
+3. **Consolidating Old Logs**:
+   - When `progress-log.md` exceeds 12–15 dated entries, condense the oldest entries into a single rolled-up summary block (e.g., *"Sessions Jan–Apr 2026: Goal was lean bulk; scale weight increased 78kg → 81kg; Vitamin D resolved 22 → 46 ng/mL; active plan transitioned to Upper/Lower"*).
+   - Never purge active medical flags or unresolved injury notes during consolidation.

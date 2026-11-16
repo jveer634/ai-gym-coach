@@ -1,17 +1,48 @@
 # Coach's Verification Checklist
 
-Read this before designing or revising any workout split, diet plan, or nutrition suggestion.
+Read this before designing, modifying, or revising any workout split, diet target, or supplement protocol.
 
-Verify each of the following is actually known — from the user's own words or an uploaded file, never assumed. Read `profile.md` and recent logs first to see what's already verified; only ask about what's still missing or stale.
+---
 
-- [ ] **Goal** — what they're training for (see "First Load / New User Goal Elicitation" in SKILL.md)
-- [ ] **Blood test reports** — latest available markers, or confirmation none exist yet
-- [ ] **Current nutrition choices** — what they actually eat day to day right now, not an idealized version
-- [ ] **Dietary preferences/restrictions** — vegetarian/vegan/allergies/religious or cultural restrictions/dislikes
-- [ ] **Health conditions** — chronic conditions, medications, injuries, anything self-reported
-- [ ] **Lifestyle & Recovery** — typical sleep duration/quality, daily step count baseline (NEAT), stress level, daily water intake. These drive most of whether a plan is actually followed, so verify them for any real plan — not just when the user brings them up.
-- [ ] **Hair condition** — if relevant to the query (e.g., hair loss, thinning) or if the user brings it up; otherwise don't ask unprompted
-- [ ] **Skin condition** — same as above
-- [ ] **Training context** — experience level, equipment access, current split, schedule/time available
+## Prime Directive: Verify Before You Prescribe
 
-If a checklist item is unverified and matters for the recommendation being made right now, ask about it specifically rather than skipping it or filling it with a default. Not every item needs re-verifying every session — only what's missing, stale, or directly relevant to the current query.
+Every recommendation must be traceable to verified data provided directly by the user or an uploaded file. If a checklist item is missing or ambiguous, **ask targeted questions before drafting or altering `plan.md`**.
+
+Read `profile.md` and recent logs first to identify what is already verified. Only elicit what is missing, outdated, or directly relevant to the current decision.
+
+---
+
+## 1. Core Verification Checkpoints
+
+### A. Goal & Constraints (Mandatory for Initial Plan)
+- [ ] **Primary Goal**: Specific target (e.g., hypertrophy/hypertrophy-aesthetics, powerlifting/strength, fat loss/recomposition, endurance).
+- [ ] **Timeline & Milestones**: Realistic timeframe or target date.
+- [ ] **Equipment Access & Environment**: Commercial gym (machines, barbells, dumbbells, cables), home gym, or bodyweight/calisthenics only.
+- [ ] **Schedule & Frequency**: Available training days per week and maximum session duration (e.g., 4 days/week, 60 minutes/session).
+
+### B. Health & Orthopedic Safety
+- [ ] **Health Conditions & Medications**: Chronic medical conditions, prescription drugs (checking for interactions with caffeine, hydration, or training tolerance).
+- [ ] **Pain & Injury History**: Past or acute orthopedic joint/tendon issues (see `references/pain-management.md`).
+- [ ] **Blood Test Status**: Latest available biomarker panel, or explicit confirmation that no lab work is available yet (see `references/biomarker-guide.md`).
+
+### C. Nutrition & Metabolism
+- [ ] **Current Real-World Intake**: Typical daily eating habits, estimated calories, and meal frequency (not an idealized meal plan).
+- [ ] **Dietary Preferences / Restrictions**: Omnivore, vegetarian, vegan, pescatarian, kosher, halal, food allergies, or intolerances (e.g., lactose, gluten).
+- [ ] **Body Metrics**: Body weight, height, age, biological sex, and recent weight trend (stalling, dropping, or rising).
+
+### D. Lifestyle & Autoregulation Baselines
+- [ ] **Sleep Baseline**: Typical sleep duration, subjective sleep quality, and regularity.
+- [ ] **Daily Activity & NEAT**: Average daily step count (pedometer/smartwatch) or occupation activity level.
+- [ ] **Stress & Hydration**: Daily water intake and subjective occupational/life stress level (1–10).
+
+### E. Optional / Contextual Checkpoints (Only If Raised by User)
+- [ ] **Hair Condition**: Density, shedding, or scalp symptoms (only if user brings it up; never ask unprompted).
+- [ ] **Skin Condition**: Dryness, breakouts, or inflammatory symptoms (only if user brings it up; never ask unprompted).
+
+---
+
+## 2. Verification Protocol Rules
+
+1. **Batch Inquiries**: Group missing related questions together (e.g., ask for schedule, equipment, and injury history in one prompt rather than three separate messages).
+2. **Flag Assumptions Explicitly**: If proceeding with a provisional target before a minor detail is confirmed (e.g., *"assuming you have access to standard dumbbells and an adjustable bench"*), label it explicitly as an assumption and ask the user to confirm.
+3. **No Re-Asking**: Never ask for information already documented in `profile.md` unless verifying whether an old injury has healed or equipment access has changed.

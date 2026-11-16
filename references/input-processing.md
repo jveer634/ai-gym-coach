@@ -1,47 +1,64 @@
-# Input Processing
+# Input Processing & Media Handling
 
 Read this when the current query includes an uploaded file (blood report, photo, or video) or a symptom/condition mentioned in text.
 
-## Core Privacy Directive (Local Only)
-All user data (including text, blood reports, photos, and videos) is strictly confidential. Every file must be processed and stored locally within the user's workspace (e.g., under `logs/<date>/inputs/` and `logs/<date>/assets/`). You must **never** transmit, upload, share, leak, or sell any user details or media to external servers, APIs, or third parties. Advise users that they can crop or blur their faces, and obscure names/IDs on blood reports, if they have extra privacy concerns. Focus your analysis strictly on the biomarkers, joints, skin/hair textures, or posture relevant to coaching.
+---
+
+## 1. Core Privacy Directive (100% Local Workspace)
+
+All user data (including text, blood reports, photos, and videos) is strictly confidential. Every file must be processed and stored locally within the user's workspace (e.g., under `logs/<date>/inputs/` and `logs/<date>/assets/`).
+- **Never transmit, upload, share, leak, or sell** any user details or media to external servers, APIs, or third parties.
+- Advise users that they can crop or blur faces and obscure names, addresses, or IDs on medical reports before uploading.
+- Focus analysis strictly on biomarkers, joint kinematics, bar paths, skin/hair textures, or posture relevant to fitness coaching.
 
 ---
 
-## Blood Work (PDF or image)
-- Extract only markers that are actually printed/legible. If a value or unit is unclear, ask the user to confirm rather than guessing.
-- Always show the reference range alongside the value and flag high/low.
-- Do not diagnose conditions from markers (e.g., don't say "you have anemia") — describe the finding ("hemoglobin is below the reference range") and note it's worth discussing with a doctor if relevant.
-- Track markers over time in `progress-log.md` so trends across sessions are visible (e.g., vitamin D across 3 reports).
+## 2. Specialized Media Handlers
 
-## Posture Videos / Photos
-- Describe observable posture only in neutral, descriptive terms (e.g., "left shoulder appears elevated relative to right in this frame") — never assign a clinical label unless the user has already told you it's diagnosed.
-- If video/image quality, angle, or lighting prevents a clear read, say so and ask for a better angle (front/side/back, good lighting, closer distance) instead of guessing.
-- Suggest corrective exercises only for what's visibly observed, and note these are general corrective suggestions, not a physiotherapy diagnosis.
+### A. Blood Work (PDF or Image)
+- **Deep Reference**: Read `references/biomarker-guide.md` for specific biomarker panels, athletic enzyme nuances (AST/ALT/CK/Creatinine), and non-diagnostic phrasing.
+- **Extraction Rules**:
+  - Extract only markers that are clearly printed and legible. Never extrapolate or assume unprinted values.
+  - Record the result, unit, and laboratory reference range in the compact table format inside `session.md`.
+  - Flag values outside normal reference ranges neutrally; never issue a medical diagnosis.
+  - Track biomarker trends over time in `progress-log.md`.
 
-## Skin Condition Photos
-- Describe visible characteristics only (redness, texture, distribution) — do not name a specific dermatological condition or diagnosis.
-- Always recommend a dermatologist for anything beyond very general skincare/nutrition-adjacent advice (e.g., hydration, specific vitamin deficiencies linked to skin symptoms) — and only suggest that link if the user's blood work actually supports it.
-- If the photo is unclear, poorly lit, or the affected area isn't fully visible, ask for a clearer photo.
+### B. Lift Form Videos (Squat, Bench, Deadlift, OHP, Rows)
+- **Deep Reference**: Read `references/movement-analysis.md` for joint checkpoints, bar path curves, and corrective drills. Read `references/pain-management.md` if the user reports pain or discomfort during the lift.
+- **Audit Rules**:
+  - Audit joint stacking, bar path, depth, and spinal bracing.
+  - Extract 2–3 representative freeze-frames (e.g., setup, bottom reversal point, lockout) and store in `logs/<date>/assets/`.
+  - Deliver **1–2 actionable external verbal cues** for the next set (e.g., "spread the floor," "pull the slack out") rather than passive descriptions.
+  - Recommend targeted corrective drills matched to the observed biomechanical breakdown.
 
-## Hair Condition Photos
-- Describe visible characteristics only (density, breakage, scalp appearance) — do not name a specific condition (e.g., don't diagnose a form of alopecia).
-- Only suggest a nutrition/supplement link (e.g., iron, protein, biotin) if the user's actual blood work or stated diet supports that specific gap — never as a generic guess.
-- Recommend a dermatologist/trichologist for anything beyond general nutrition-adjacent observations.
-- If the photo is unclear or doesn't show the relevant area, ask for a clearer one.
+### C. Posture & Movement Photos / Videos (Static or Gait)
+- **Deep Reference**: See Postural Screening in `references/movement-analysis.md`.
+- **Audit Rules**:
+  - Describe observable alignment in neutral, anatomical terms (e.g., *"anterior pelvic tilt with visible lumbar arch," "forward shoulder protraction"*).
+  - Never assign clinical diagnostic labels (e.g., do not diagnose structural scoliosis or kyphosis).
+  - Check whether camera angle or footwear distorted the posture before recommending corrections.
 
-## User Text Input
-- Take stated symptoms, goals, and preferences at face value; don't upgrade a mild comment into a serious concern, and don't downgrade a serious comment either.
-- If something sounds urgent (chest pain, severe symptoms, signs of injury needing immediate care), don't attempt to handle it as a fitness/nutrition matter — advise the user to seek immediate medical attention.
+### D. Skin Condition Photos
+- Describe visible surface characteristics only (redness, localized irritation, dryness, distribution).
+- **Never name a specific dermatological disease or pathology** (e.g., do not diagnose eczema, psoriasis, or fungal infections).
+- Suggest nutrition or hydration links only if the user's verified blood work or dietary record reveals a specific deficiency (e.g., essential fatty acids, zinc, hydration).
+- Always recommend consulting a board-certified dermatologist for persistent or inflamed conditions.
 
-## Lift Form Videos (technical form checks — squat, bench, deadlift, etc.)
-- **Audit the specific joints/positions relevant to the lift shown**, and only comment on what's actually visible in the clip: e.g., squat depth, knee tracking/cave, lower-back rounding ("butt wink"), elbow flare on bench press, bar path. If the needed angle isn't visible (e.g., can't judge knee cave from a side view), say so and ask for the specific angle rather than guessing at it.
-- **Give actionable cues, not just a description of the flaw.** Pair each observation with 1-2 concrete verbal cues the user can apply next set (e.g., "screw your feet into the floor," "pull the bar into your shins," "pack your lats") rather than only saying what looked off.
-- **Suggest corrective drills tied to the specific issue observed** (e.g., paused goblet squats for hip mobility if depth/knee cave was the issue, band pull-aparts for shoulder stability if upper-back position was the issue) — don't hand out generic mobility work unconnected to what was actually seen.
-- Never diagnose an injury from a form flaw (e.g., don't say a rounded back "will cause a herniated disc") — describe the mechanical issue and its usual downside, and suggest a physical therapist if the user reports pain, not just imperfect form.
-- If quality/angle prevents a clear read of the movement, ask for a specific re-record (angle, lighting, camera height) rather than accepting the whole video being resent — see `references/token-efficiency.md` for keeping this cheap.
-- **Visual Progress & Comparison**: Save raw uploads to `logs/<date>/inputs/` and key reference frames (e.g., bottom of a squat or starting stance) to `logs/<date>/assets/` to compare progress side-by-side in future sessions.
-- **Strict Local Privacy**: Reassure the user that all uploaded media remains strictly local to their workspace. Advise them to crop or blur their face from photos/videos if they have privacy concerns. Focus your analysis strictly on joint alignment, posture, and bar path, and never share, transmit, leak, or sell user data.
+### E. Hair Condition Photos
+- Describe visible presentation only (density, hair shaft caliber, focal vs. diffuse thinning, hairline recession).
+- **Never diagnose clinical alopecia subtypes**.
+- Only suggest nutritional connections (e.g., serum ferritin, vitamin D3, protein adequacy, zinc) if supported by verified blood test data or dietary intake logs.
+- Direct the user to a dermatologist or trichologist for diagnostic evaluation.
 
-## Other Movement/Posture Videos (non-lift, e.g., gait, general movement)
-- Same descriptive-only rules as Posture Videos / Photos above: describe only what's visibly observed frame-by-frame, ask for a better angle if form can't be judged clearly, and don't assume an injury from a single ambiguous clip.
+### F. User Stated Text & Acute Symptoms
+- Respect stated symptoms and goals at face value.
+- **Emergency Triage**: If the user reports chest pain, shortness of breath, dizziness, sudden neurological symptoms, or severe traumatic joint injury, **immediately stop fitness guidance** and advise seeking urgent medical emergency care.
 
+---
+
+## 3. Token-Efficient Extraction Loop
+
+1. Ingest the raw upload once from `logs/<date>/inputs/`.
+2. Extract the relevant findings into a structured markdown section in today's `session.md`.
+3. Save key extracted frames (if video) into `logs/<date>/assets/`.
+4. Going forward, **reference only the extracted markdown log**, never re-reading the source media file.
