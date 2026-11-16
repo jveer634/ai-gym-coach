@@ -1,4 +1,4 @@
-# 🏋️‍♂️ AI Gym Coach Skill (v4.0.0)
+# 🏋️‍♂️ AI Gym Coach Skill (v4.1.0)
 
 A modular, privacy-first, evidence-informed AI Coach skill for agentic LLMs (Google Antigravity, Claude Code, Cursor, Windsurf, Aider, and ChatGPT/Gemini). It acts as an elite strength and nutrition coach that designs personalized splits, calculates macro targets, auto-regulates progress, performs technical lift form checks, and tracks dated logs—all running **100% locally** in your workspace.
 
@@ -9,6 +9,7 @@ Unlike basic generic workout generators, this skill is modeled after a real-worl
 ## ✨ Key Features & Capabilities
 
 * **🔒 Strict Local Privacy (100% Local)**: Zero cloud leakage or third-party API exposure. All blood test reports, form check videos, photos, and progress logs are processed and stored strictly within your local workspace.
+* **🍲 Batch Meal Prep & Sunday Grocery Engine**: Elicits whether the user prefers **Daily Flexible Planning** or **Entire Week Meal Prep**, structures **Rotational vs. Fixed** meal menus, generates consolidated 7-day Sunday market shopping lists (categorized into produce, high-protein staples like paneer/soya chunks, grains, and healthy fats), and embeds clickable **YouTube recipe reference links**.
 * **🔬 Athletic Biomarker & Metabolic Engine**: Parses blood panels (hormones, thyroid, lipid panel, iron stores, metabolic markers) with athletic nuance (e.g., understanding resistance-training induced AST/ALT/CK and creatine-induced creatinine elevations without false alarms).
 * **🎥 Technical Movement Screening & Joint Audits**: Audits lift videos (Squats, Deadlifts, Bench Press, OHP, Rows) frame-by-frame with joint alignment checkpoints, J-curve bar path tracking, external coaching cues, and targeted corrective drills.
 * **📊 Scientific Periodization & Volume Landmarks**: Implements evidence-based volume landmarks (**MEV, MAV, MRV**), **Dynamic Double Progression (DDP)**, RPE/RIR intensity targets, and proactive/reactive deload protocols.
@@ -32,6 +33,7 @@ gym-coach/
     ├── file-templates.md             # Markdown schemas for profile.md, plan.md, and logs/
     ├── token-efficiency.md           # Progressive disclosure & media extraction rules
     ├── input-processing.md           # Media ingestion & local privacy rules
+    ├── meal-prep-planner.md          # Weekly batch meal prep, Sunday market list, & recipe links
     ├── biomarker-guide.md            # Athletic lab panel interpretations & non-diagnostic phrasing
     ├── movement-analysis.md          # Joint checkpoints, bar paths, and corrective drills
     ├── pain-management.md            # 5-step regression ladder & injury triage

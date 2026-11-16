@@ -57,10 +57,12 @@ _Last updated: YYYY-MM-DD_
 - **Current Medications**: [None reported / Listed drugs]
 - **Injury / Pain History**: [Documented joint/tendon sensitivities or prior surgeries]
 
-## Nutrition Baseline
-- **Typical Daily Diet**: [Summary of real daily eating habits]
-- **Dietary Restrictions / Preferences**: [Omnivore / Vegetarian / Gluten-Free / Lactose Intolerant]
-- **Allergies**: [Specific food allergies]
+## Nutrition & Meal Prep Baseline
+- **Planning Paradigm**: [Daily Flexible Tracking vs. Entire Week Meal Prep]
+- **Menu Strategy**: [Fixed / Consistent vs. Rotational Recipes]
+- **Grocery Shopping Day**: [e.g., Sunday morning market]
+- **Dietary Restrictions / Preferences**: [Omnivore / Vegetarian / Vegan / Allergies]
+- **Preferred Protein Staples**: [e.g., Paneer, Soya chunks, Tofu, Whey, Chicken breast, Eggs]
 
 ## Lifestyle & Autoregulation Baseline
 - **Sleep**: [Average duration, e.g., 7.5 hrs/night; subjective sleep quality]
@@ -112,30 +114,62 @@ _Last updated: YYYY-MM-DD — Detailed rationale logged in logs/YYYY-MM-DD/sessi
 ## Nutritional Targets & Macros
 
 - **Daily Energy Target**: [e.g., 2,450 kcal/day (250 kcal surplus)]
-- **Protein**: [e.g., 180 g (2.0 g/kg) — minimum 35g protein per feeding across 4 meals]
-- **Fats**: [e.g., 65 g (0.75 g/kg) — healthy mono/polyunsaturated fats floor]
-- **Carbohydrates**: [e.g., 285 g — majority allocated pre/post training]
-- **Hydration**: [e.g., 3.5 Liters water daily]
-- **Refeed / Diet Break Schedule**: [e.g., N/A during surplus, or 48-hr refeed at week 8]
+- **Protein**: [e.g., 180 g (2.0 g/kg) — raw weight calculations]
+- **Fats**: [e.g., 65 g (0.75 g/kg)]
+- **Carbohydrates**: [e.g., 285 g]
+- **Hydration Target**: [e.g., 3.5 Liters water daily]
+
+## Meal Plan & Recipe Schedule ([Rotational / Fixed])
+
+### Meal Plan A (e.g., Mon / Wed / Fri / Sun)
+- **Breakfast**: High-Protein Oats with Whey & Chia Seeds
+- **Lunch**: High-Protein Paneer Bhurji with 2 Rotis & Salad  
+  *Recipe Video*: [Watch Paneer Bhurji Prep](https://www.youtube.com/results?search_query=healthy+high+protein+paneer+bhurji+recipe)
+- **Snack**: Greek Yogurt with Roasted Almonds
+- **Dinner**: Soya Chunks Stir-Fry with Steamed Basmati Rice  
+  *Recipe Video*: [Watch Soya Chunks Stir-Fry Prep](https://www.youtube.com/results?search_query=crispy+soya+chunks+stir+fry+high+protein)
+
+*(Include Meal Plan B if user selected Rotational)*
+
+## Weekly Sunday Grocery Shopping List
+*(7-Day Batch Quantities based on Meal Prep)*
+
+### Fresh Produce & Vegetables
+- [ ] Tomatoes: 1.5 kg
+- [ ] Onions: 1.5 kg
+- [ ] Spinach / Palak: 500g
+- [ ] Bell Peppers (Capsicum): 1 kg
+- [ ] Broccoli: 2 heads (~800g)
+
+### High-Protein Staples (Raw Weights)
+- [ ] Paneer: 700g (100g/day)
+- [ ] Soya Chunks: 350g (50g raw/day)
+- [ ] Whey Protein Powder: 1 tub (or 7 scoops)
+- [ ] Greek Yogurt / Curd: 1.5 kg
+
+### Complex Carbs & Grains
+- [ ] Rolled Oats: 500g
+- [ ] Basmati Rice: 1 kg
+- [ ] Whole Wheat Atta: 1 kg
+
+### Cooking Essentials & Healthy Fats
+- [ ] Ghee / Cold-Pressed Oil: 200 ml
+- [ ] Almonds / Walnuts: 200g
+- [ ] Chia Seeds: 100g
 
 ## Supplement Protocol
 
 | Supplement | Dosage | Timing | Evidence Rationale |
 | :--- | :--- | :--- | :--- |
-| Creatine Monohydrate | 5 g | Daily post-workout | Tier A: Ergogenic strength & intracellular hydration |
-| Whey Protein Isolate | 30 g | Post-workout or meal gap | Tier A: Convenient high-leucine protein source |
-| Vitamin D3 + K2 | 4,000 IU | Morning with meal | Tier A: Correcting verified blood level (21 ng/mL) |
-| Magnesium Glycinate | 300 mg | 45 min before sleep | Tier B: Neuromuscular relaxation & sleep onset |
-
-## Lifestyle & Autoregulation Targets
-- **Sleep Target**: Minimum 7.5 hours per night in cool, dark environment.
-- **Daily Step Target (NEAT)**: 9,000 steps/day.
-- **Deload Trigger**: Scheduled for Week 7, or earlier if compound lifts regress 2 sessions consecutively.
+| Creatine Monohydrate | 5 g | Daily post-workout | Tier A: Strength & cell hydration |
+| Whey Protein Isolate | 30 g | Post-workout | Tier A: High-leucine protein source |
+| Vitamin D3 + K2 | 4,000 IU | Morning with meal | Tier A: Target blood deficiency |
+| Magnesium Glycinate | 300 mg | Before bed | Tier B: Neuromuscular relaxation |
 
 ---
 
 ## Plan Version History
-- **YYYY-MM-DD**: [Summary of change, e.g., Increased calories by 150 kcal due to 21-day weight stall; reason ref: logs/YYYY-MM-DD/session.md]
+- **YYYY-MM-DD**: [Summary of change, e.g., Generated Sunday grocery list and rotational vegetarian meal prep; reason ref: logs/YYYY-MM-DD/session.md]
 - **YYYY-MM-DD**: Initial plan initialized.
 ```
 
@@ -149,7 +183,7 @@ Created or updated on every interaction turn.
 # Session Log: YYYY-MM-DD
 
 ## 1. Inputs Received
-- [File/Text] — [Type, e.g., Blood panel PDF, Squat form video (side view), user scale update]
+- [File/Text] — [Type, e.g., Blood panel PDF, Squat form video, Meal prep preferences]
 
 ## 2. Compact Extracted Data
 
@@ -165,10 +199,10 @@ Created or updated on every interaction turn.
 - **Primary Actionable Cue**: [1-2 concise external cues]
 - **Targeted Corrective Drill**: [Specific drill from movement-analysis.md]
 
-### Lifestyle & Tracking Status
-- **Current Scale Weight**: [e.g., 81.2 kg (7-day average: 81.0 kg)]
-- **Reported Compliance**: [Adherence to calories, protein, and step targets]
-- **Subjective Recovery / Sleep**: [Hours slept, soreness rating, joint discomfort]
+### Nutrition & Meal Prep Decisions
+- **Planning Paradigm**: [Daily Flexible vs. Entire Week Batch Prep]
+- **Menu Choice**: [Fixed vs. Rotational]
+- **Sunday Grocery List Generated**: [Yes/No]
 
 ## 3. Coach's Verification Audit
 - Verified items reviewed against `verification-checklist.md`.
@@ -178,7 +212,7 @@ Created or updated on every interaction turn.
 ### Workout Adjustments
 - [Changes to volume, exercises, or deload implementation]
 ### Diet & Macro Adjustments
-- [Caloric, macro, or refeed adjustments with mathematical rationale]
+- [Caloric, macro, recipe, and grocery list adjustments]
 ### Supplement Updates
 - [Evidence-tiered adjustments]
 
@@ -199,11 +233,11 @@ Append-only summary log tracking long-term trends and deltas.
 # Master Progress Log
 
 ## YYYY-MM-DD
-- **Inputs**: [Blood report PDF, Squat video]
+- **Inputs**: [Blood report PDF, Squat video, Meal prep setup]
 - **Body Weight**: 81.2 kg (Δ: -0.4 kg from last week)
 - **Key Biomarkers**: Vitamin D: 21.4 ng/mL (Low), Ferritin: 28 ng/mL (Borderline)
-- **Form Audits**: Squat knee valgus noted on rep 4; assigned Spanish Squats & floor-spread cue.
-- **Plan Modifications**: `plan.md` updated to v1.1 — added 4,000 IU D3 and adjusted squat volume.
+- **Meal Prep**: Set up Sunday weekly grocery list with 7-day vegetarian rotational recipes (Paneer/Soya).
+- **Plan Modifications**: `plan.md` updated to v1.1.
 - **Open Questions**: Confirming daily step average and current sleep schedule.
-- **Next Follow-up**: Review 7-day scale weight and updated squat footage.
+- **Next Follow-up**: Review weekly adherence and updated weigh-in log.
 ```

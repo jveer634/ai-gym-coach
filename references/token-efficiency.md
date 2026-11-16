@@ -13,6 +13,7 @@ To minimize context window consumption, **never load all reference files on ever
 | `references/token-efficiency.md` | Session start / file ingestion | Query is a simple text question already covered |
 | `references/verification-checklist.md` | Designing or revising workout/diet | User is merely checking in with casual questions |
 | `references/file-templates.md` | Creating or modifying profile/plan/logs | Purely conversational turn without file writes |
+| `references/meal-prep-planner.md` | Meal prep, Sunday grocery lists, recipes | Workout-only inquiries or general chat |
 | `references/biomarker-guide.md` | Blood report uploaded or lab values cited | No blood work or lab tests involved |
 | `references/movement-analysis.md` | Lift video, posture photo, or form check | Diet-only or general programming inquiries |
 | `references/pain-management.md` | User reports joint pain, pinch, or injury | User reports normal muscle soreness (DOMS) |

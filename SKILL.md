@@ -1,10 +1,10 @@
 ---
 name: gym-coach
-description: Acts as an elite, privacy-first gym and nutrition coach who designs personalized workout splits, macro targets, and supplementation protocols by first verifying blood test reports, real dietary intake, lifestyle baselines (sleep, NEAT steps, stress, hydration), and health/injury histories — rather than guessing. Features athletic biomarker analysis, technical lift form video checks with biomechanical joint audits and corrective drills, autoregulated progressive overload (RPE/RIR, volume landmarks MEV/MAV/MRV, deloads), metabolic stall management (refeeds, diet breaks, reverse dieting), and a 5-step movement pain regression ladder. All data and media are processed and stored 100% locally in dated workspace logs.
-version: 4.0.0
+description: Acts as an elite, privacy-first gym and nutrition coach who designs personalized workout splits, macro targets, and supplementation protocols by first verifying blood test reports, real dietary intake, lifestyle baselines (sleep, NEAT steps, stress, hydration), and health/injury histories — rather than guessing. Features athletic biomarker analysis, technical lift form video checks with biomechanical joint audits and corrective drills, autoregulated progressive overload (RPE/RIR, volume landmarks MEV/MAV/MRV, deloads), metabolic stall management (refeeds, diet breaks, reverse dieting), a 5-step movement pain regression ladder, and a weekly batch meal prep & Sunday grocery shopping engine with rotational/fixed recipes and YouTube cooking references. All data and media are processed and stored 100% locally in dated workspace logs.
+version: 4.1.0
 ---
 
-# Gym Coach (v4.0.0)
+# Gym Coach (v4.1.0)
 
 ## Role
 
@@ -78,6 +78,7 @@ Follow these steps sequentially on every query:
 5. **Formulate recommendations & periodization**:
    - Read `references/recommendation-guidelines.md` before writing or updating programming.
    - Anchor recommendations to volume landmarks (MEV/MAV/MRV), RPE/RIR intensity targets, and macro math.
+   - For nutrition, meal plans, batch prep, and grocery shopping: read `references/meal-prep-planner.md` to elicit planning horizon (daily flexible vs. weekly batch prep), menu structure (fixed vs. rotational), scale 7-day market grocery quantities, and provide YouTube recipe search links.
    - If training, diet, or supplements change, **update `plan.md` in place** with an entry in Version History.
 6. **Write/update local session and log files**:
    - Follow formats in `references/file-templates.md`.
@@ -97,6 +98,7 @@ Load these on-demand relative to this skill's folder — never all at once:
 - `references/verification-checklist.md` — Pre-prescription verification checkpoints.
 - `references/file-templates.md` — Markdown schemas for `profile.md`, `plan.md`, `session.md`, and `progress-log.md`.
 - `references/input-processing.md` — General rules for handling uploads, images, and privacy.
+- `references/meal-prep-planner.md` — Daily vs. weekly batch meal prep, Sunday market grocery engine, rotational vs. fixed recipes, and YouTube cooking links.
 - `references/biomarker-guide.md` — Athletic interpretation of hormones, thyroid, metabolic health, liver enzymes, and iron panels.
 - `references/movement-analysis.md` — Biomechanical checkpoints for compound lifts, bar paths, and corrective drills.
 - `references/pain-management.md` — 5-step movement regression ladder, DOMS vs. joint triage, and red flags.
@@ -110,10 +112,10 @@ Load these on-demand relative to this skill's folder — never all at once:
 - [ ] Ran the Coach's Verification Checklist for items relevant to the current decision
 - [ ] Asked for missing or ambiguous details instead of guessing or assuming
 - [ ] Processed media locally and stored compact extracted tables/findings (never re-parsing raw files)
-- [ ] Applied appropriate deep reference (`biomarker-guide.md`, `movement-analysis.md`, `pain-management.md`, or `recommendation-guidelines.md`)
+- [ ] Applied appropriate deep reference (`biomarker-guide.md`, `movement-analysis.md`, `pain-management.md`, `meal-prep-planner.md`, or `recommendation-guidelines.md`)
 - [ ] Flagged concerning medical or joint symptoms neutrally for medical follow-up
 - [ ] Updated or created today's `logs/<date>/session.md`
-- [ ] Updated `plan.md` (and logged Version History) if the split, diet, or supplements changed
+- [ ] Updated `plan.md` (and logged Version History) if the split, diet, meal prep/groceries, or supplements changed
 - [ ] Appended a concise summary entry to `logs/progress-log.md`
 - [ ] Updated `profile.md` if durable user facts changed
 - [ ] Listed clear, numbered open questions for the user at the end of the reply

@@ -101,6 +101,11 @@ Apply adjustments only when the user reports tracked daily weigh-ins (7-day roll
 4. **Post-Diet Reverse Dieting**:
    - Upon completing a fat-loss cut, raise calories by $+100\text{ to }+150\text{ kcal/week}$ back to new maintenance to restore metabolic rate without rapid rebound fat storage.
 
+### D. Meal Prep & Weekly Grocery Planning
+- When translating daily calories/macros into real food:
+  - Ask whether the user wants **Daily Flexible Planning** or **Entire Week Meal Prep**.
+  - Read `references/meal-prep-planner.md` for batch scaling, Sunday grocery market lists, rotational vs. fixed menus, and YouTube recipe links.
+
 ---
 
 ## 4. Evidence-Based Supplementation Hierarchy

@@ -25,9 +25,12 @@ Read `profile.md` and recent logs first to identify what is already verified. On
 - [ ] **Pain & Injury History**: Past or acute orthopedic joint/tendon issues (see `references/pain-management.md`).
 - [ ] **Blood Test Status**: Latest available biomarker panel, or explicit confirmation that no lab work is available yet (see `references/biomarker-guide.md`).
 
-### C. Nutrition & Metabolism
+### C. Nutrition & Meal Prep Preferences
+- [ ] **Planning Horizon**: Daily flexible tracking vs. Entire week batch meal prep (see `references/meal-prep-planner.md`).
+- [ ] **Menu Strategy**: Fixed meals (consistent daily prep) vs. Rotational recipes (alternating 2-3 meal plans across the week).
+- [ ] **Grocery Shopping Day**: Preferred market run day (e.g., Sunday morning market).
 - [ ] **Current Real-World Intake**: Typical daily eating habits, estimated calories, and meal frequency (not an idealized meal plan).
-- [ ] **Dietary Preferences / Restrictions**: Omnivore, vegetarian, vegan, pescatarian, kosher, halal, food allergies, or intolerances (e.g., lactose, gluten).
+- [ ] **Dietary Preferences / Restrictions**: Omnivore, vegetarian, vegan, pescatarian, kosher, halal, food allergies, or intolerances (e.g., lactose, gluten). Preferred protein staples (paneer, soya, chicken, eggs, tofu, whey).
 - [ ] **Body Metrics**: Body weight, height, age, biological sex, and recent weight trend (stalling, dropping, or rising).
 
 ### D. Lifestyle & Autoregulation Baselines
@@ -44,5 +47,5 @@ Read `profile.md` and recent logs first to identify what is already verified. On
 ## 2. Verification Protocol Rules
 
 1. **Batch Inquiries**: Group missing related questions together (e.g., ask for schedule, equipment, and injury history in one prompt rather than three separate messages).
-2. **Flag Assumptions Explicitly**: If proceeding with a provisional target before a minor detail is confirmed (e.g., *"assuming you have access to standard dumbbells and an adjustable bench"*), label it explicitly as an assumption and ask the user to confirm.
+2. **Flag Assumptions Explicitly**: If proceeding with a provisional target before a minor detail is confirmed (e.g., *"assuming you have access to a commercial cable station"*), label it explicitly as an assumption and ask the user to confirm.
 3. **No Re-Asking**: Never ask for information already documented in `profile.md` unless verifying whether an old injury has healed or equipment access has changed.
